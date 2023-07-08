@@ -107,7 +107,7 @@
                                         <li class="list-inline-item">Centralino: <a class="text-underline-hover" href="tel:<?php echo str_replace(' ', '', $contatti_centralino); ?>"><?php echo $contatti_centralino; ?></a></li>
                                     <?php } ?>
                                     <?php if($contatti_PEO) { ?>
-                                        <li class="list-inline-item">Email: <a class="text-underline-hover" href="mailto:<?php echo str_replace(' ', '', $contatti_PEO); ?>"><?php echo $contatti_PEO; ?></a></li>
+                                        <li class="list-inline-item">Email (PEO): <a class="text-underline-hover" href="mailto:<?php echo str_replace(' ', '', $contatti_PEO); ?>"><?php echo $contatti_PEO; ?></a></li>
                                     <?php } ?>
                                     <?php if($contatti_PEC) { ?>
                                         <li class="list-inline-item">Posta elettronica certificata (PEC): <a class="text-underline-hover" href="mailto:<?php echo str_replace(' ', '', $contatti_PEC); ?>"><?php echo $contatti_PEC; ?></a></li>
@@ -118,16 +118,16 @@
                             <?php if($contatti_CF || $contatti_meccanografico || $contatti_IPA || $contatti_CUF) { ?>
                                 <ul class="list-unstyled">
                                     <?php if($contatti_CF) { ?>
-                                        <li>Codice fiscale: <?php echo $contatti_CF; ?></li>
+                                        <li>Codice fiscale: <strong><?php echo $contatti_CF; ?></strong></li>
                                     <?php } ?>
                                     <?php if($contatti_meccanografico) { ?>
-                                        <li>Codice meccanografico: <a class="text-underline-hover" href="https://cercalatuascuola.istruzione.it/cercalatuascuola/ricerca/risultati?tipoRicerca=RAPIDA&rapida=<?php echo str_replace(' ', '', $contatti_meccanografico); ?>"><?php echo $contatti_meccanografico; ?></a></li>
+                                        <li>Codice meccanografico: <a class="text-underline-hover" href="https://cercalatuascuola.istruzione.it/cercalatuascuola/ricerca/risultati?tipoRicerca=RAPIDA&rapida=<?php echo str_replace(' ', '', $contatti_meccanografico); ?>"><strong></strong><?php echo $contatti_meccanografico; ?></strong></a></li>
                                     <?php } ?>
                                     <?php if($contatti_IPA) { ?>
-                                        <li>Codice Indice delle Pubbliche Amministrazioni (IPA): <?php echo $contatti_IPA; ?></li>
+                                        <li>Codice Indice delle Pubbliche Amministrazioni (IPA): >strong><?php echo $contatti_IPA; ?></strong></li>
                                     <?php } ?>
                                     <?php if($contatti_CUF) { ?>
-                                        <li>Codice unico di fatturazione (CUF): <?php echo $contatti_CUF; ?></li>
+                                        <li>Codice unico di fatturazione (CUF): <strong><?php echo $contatti_CUF; ?></strong></li>
                                     <?php } ?>
                                 </ul>
                             <?php } ?>
