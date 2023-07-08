@@ -311,3 +311,11 @@ function add_tags_to_all_content_types( $query ) {
 }
 
 add_action( 'pre_get_posts', 'add_tags_to_all_content_types' );
+
+/* mie aggiunte */
+/*redirect dopo login*/
+function custom_login_redirect() {
+return 'index.php';
+}
+add_filter('login_redirect', 'custom_login_redirect');
+/* fine */
