@@ -96,7 +96,7 @@
             ?>
                 <div class="row variable-gutters mb-3">
                     <div class="col-lg-12 text-left text-md-center footer-text">
-
+                            <?php echo wpautop($footer_text); ?>
                             <?php if($contatti_indirizzo) { ?>
                                 Indirizzo: <a class="text-underline-hover" href="https://www.google.com/maps/search/<?php echo $contatti_indirizzo; ?>" title="Visualizza su Google Maps"><?php echo $contatti_indirizzo; ?></a>
                             <?php } ?>
@@ -121,10 +121,10 @@
                                         <li>Codice fiscale: <strong><?php echo $contatti_CF; ?></strong></li>
                                     <?php } ?>
                                     <?php if($contatti_meccanografico) { ?>
-                                        <li>Codice meccanografico: <a class="text-underline-hover" href="https://cercalatuascuola.istruzione.it/cercalatuascuola/ricerca/risultati?tipoRicerca=RAPIDA&rapida=<?php echo str_replace(' ', '', $contatti_meccanografico); ?>"><strong></strong><?php echo $contatti_meccanografico; ?></strong></a></li>
+                                        <li>Codice meccanografico: <a class="text-underline-hover" href="https://cercalatuascuola.istruzione.it/cercalatuascuola/ricerca/risultati?tipoRicerca=RAPIDA&rapida=<?php echo str_replace(' ', '', $contatti_meccanografico); ?>"><strong><?php echo $contatti_meccanografico; ?></strong></a></li>
                                     <?php } ?>
                                     <?php if($contatti_IPA) { ?>
-                                        <li>Codice Indice delle Pubbliche Amministrazioni (IPA): >strong><?php echo $contatti_IPA; ?></strong></li>
+                                        <li>Codice Indice delle Pubbliche Amministrazioni (IPA): <strong><?php echo $contatti_IPA; ?></strong></li>
                                     <?php } ?>
                                     <?php if($contatti_CUF) { ?>
                                         <li>Codice unico di fatturazione (CUF): <strong><?php echo $contatti_CUF; ?></strong></li>
@@ -132,7 +132,7 @@
                                 </ul>
                             <?php } ?>
 
-                            <?php echo wpautop($footer_text); ?>
+                           <?php echo wpautop($footer_text); ?>
                     </div>
                 </div>
             <?php
