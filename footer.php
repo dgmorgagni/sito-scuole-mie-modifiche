@@ -96,7 +96,7 @@
             ?>
                 <div class="row variable-gutters mb-3">
                     <div class="col-lg-12 text-left text-md-center footer-text">
-                            <?php echo wpautop($footer_text); ?>
+                            
                             <?php if($contatti_indirizzo) { ?>
                                 Indirizzo: <a class="text-underline-hover" href="https://www.google.com/maps/search/<?php echo $contatti_indirizzo; ?>" title="Visualizza su Google Maps"><?php echo $contatti_indirizzo; ?></a>
                             <?php } ?>
