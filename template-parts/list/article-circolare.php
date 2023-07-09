@@ -106,7 +106,7 @@ if($destinatari_circolari == "gruppo"){
 
                 </div>
 			<div class="card-article-content">
-                    <small class="h6 text-greendark"><?php _e("circ. n.", "design_scuole_italia"); echo $numerazione_circolare; ?></small>
+                    <small class="h6 text-greendark"><?php _e("Circolare ", "design_scuole_italia"); echo $numerazione_circolare; ?></small>
                     <h2 class="h3"><?php the_title(); ?></h2>
                     <p><?php echo $excerpt; ?></p>
                 </div><!-- /card-avatar-content -->
