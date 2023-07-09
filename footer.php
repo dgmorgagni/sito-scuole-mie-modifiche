@@ -22,7 +22,7 @@
 
                     <h2 class="h1">
                         <a href="<?php echo home_url(); ?>">
-                            <span><?php echo dsi_get_option("tipologia_scuola"); ?><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
+                            <span><?php echo dsi_get_option("tipologia_scuola"); ?><?php echo "  "; ?><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
                             
                             <span><?php echo dsi_get_option("luogo_scuola"); ?></span>
                         </a>
