@@ -329,6 +329,24 @@ function dsi_register_main_options_metabox() {
         )
     );
 
+$home_options->add_field( array(
+        'id' => $prefix . 'giorni_per_filtro',
+        'name' => 'Giorni da considerare come filtro',
+        'desc' => __( '<br>Se compilato con un numero di giorni maggiore di 0, verranno mostrati solo gli articoli pubblicati da meno di X giorni dalla data odierna', 'design_scuole_italia' ),
+        'type' => 'text_small',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+            'min' => 0,
+        ),
+    	'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+        'sanitization_cb' => 'dsi_sanitize_int',
+        'escape_cb'       => 'dsi_sanitize_int',
+    ) );
+	
     $home_options->add_field(array(
         'id' => $prefix . 'home_show_events',
         'name' => __('Mostra gli eventi in Home', 'design_scuole_italia'),
@@ -445,6 +463,24 @@ function dsi_register_main_options_metabox() {
         )
     );
 
+ $home_options->add_field( array(
+        'id' => $prefix . 'home_istruzioni_3',
+        'name'        => __( 'Sezione Argomenti', 'design_scuole_italia' ),
+        'desc' => __( 'Gestione sezione Argomenti mostrati in home page' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+	$home_options->add_field( array(
+			'name'       => __('Argomenti da mostrare', 'design_scuole_italia' ),
+			'desc' => __( 'Seleziona gli argomenti da mostrare in prima pagina. ', 'design_scuole_italia' ),
+			'id' => $prefix . 'home_argomenti',
+			'type'    => 'pw_multiselect',
+			'options' => dsi_get_argomenti_options(),
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona e ordina gli argomenti da mostrare nella HomePage di sezione', 'design_scuole_italia' ),
+			),
+		)
+	);
 
     /**
 	 * Registers options page "La Scuola".
@@ -1413,7 +1449,7 @@ function dsi_register_main_options_metabox() {
 			'maxlength'  => '140'
 		),
 	) );
-	
+
     $setup_options->add_field( array(
         'id' => $prefix . 'footer_options',
         'name'        => __( 'Footer', 'design_scuole_italia' ),
@@ -1491,6 +1527,19 @@ function dsi_register_main_options_metabox() {
         'sanitization_cb' => 'dsi_sanitize_int',
         'escape_cb'       => 'dsi_sanitize_int',
     ) );
+
+$setup_options->add_field(array(
+        'id' => $prefix . 'show_contatore_commenti',
+        'name' => __('Mostra il contatore dei commenti', 'design_scuole_italia'),
+        'desc' => __('Seleziona <b>Si</b> per mostrare il numero dei commenti pubblicati', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'true',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));	
+	
 }
 add_action( 'cmb2_admin_init', 'dsi_register_main_options_metabox' );
 
