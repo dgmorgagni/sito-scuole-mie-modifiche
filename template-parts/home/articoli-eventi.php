@@ -108,7 +108,8 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 'posts_per_page' => 1,
                 'meta_key' => '_dsi_evento_timestamp_inizio',
                 'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC'),
-                'meta_query' => array(
+                /* da aggiustare perché non seleziona gli eventi
+		'meta_query' => array(
                     array(
                         'key' => '_dsi_evento_timestamp_inizio'
                     ),
@@ -119,6 +120,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                         'type' => 'numeric'
                     )
                 )
+		*/
             );
             $posts = get_posts($args);
             foreach ($posts as $post) {
