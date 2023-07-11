@@ -105,7 +105,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
         <?php
         if ($home_show_events == "true_event") {
             $args = array('post_type' => 'evento',
-                'posts_per_page' => 2,
+                'posts_per_page' => 1,
                 'meta_key' => '_dsi_evento_timestamp_inizio',
                 'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC'),
 				'meta_query' => array(
