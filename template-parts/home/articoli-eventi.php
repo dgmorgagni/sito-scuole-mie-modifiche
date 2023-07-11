@@ -105,30 +105,29 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
         <?php
         if ($home_show_events == "true_event") {
             $args = array('post_type' => 'evento',
-                'posts_per_page' => 1,
+                'posts_per_page' => 2,
                 'meta_key' => '_dsi_evento_timestamp_inizio',
                 'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC'),
-                /* da aggiustare perché non seleziona gli eventi
-		'meta_query' => array(
+				'meta_query' => array(
                     array(
                         'key' => '_dsi_evento_timestamp_inizio'
                     ),
                     array(
-                        'key' => '_dsi_evento_timestamp_inizio',
+                        'key' => '_dsi_evento_timestamp_fine',
                         'value' => time(),
                         'compare' => '>=',
                         'type' => 'numeric'
                     )
                 )
-		*/
             );
-            $posts = get_posts($args);
-            foreach ($posts as $post) {
-                get_template_part("template-parts/evento/card");
-            }
+		   //var_dump($args);
+           $posts = get_posts($args);
+           foreach ($posts as $post) {	  
+               get_template_part("template-parts/evento/card");
+           }
         }else {
-            // $calendar_card = true;
-            // get_template_part("template-parts/evento/full_calendar");
+             //$calendar_card = true;
+             //get_template_part("template-parts/evento/full_calendar");
         }
 
     ?>
@@ -147,7 +146,8 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             </div><!-- /title-section -->
             <?php
             $args = array('post_type' => 'circolare',
-                'posts_per_page' => 1
+                'posts_per_page' => 1,
+		'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC')
             );
             $posts = get_posts($args);
             foreach ($posts as $post) {
@@ -164,5 +164,4 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
         </div><!-- /row -->
     </div><!-- /container -->
     </section><!-- /section --><?php
-
 }
