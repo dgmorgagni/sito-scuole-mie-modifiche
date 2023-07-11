@@ -27,19 +27,14 @@ get_header();
 					$ct++;
 				}
 
-			}
-
-            get_template_part("template-parts/home/notizie", "circolari");
+			}  
+			
+            get_template_part("template-parts/home/circolari", "circolari");
             $ct++;
-            //get_template_part("template-parts/home/eventi");
-
-
 		endwhile; // End of the loop.
 		?>
 	</main>
 
 <?php
 get_footer();
-
-
 
