@@ -16,7 +16,7 @@ get_header();
 			the_post();
 
 			get_template_part("template-parts/hero/notizie");
-
+			get_template_part("template-parts/home/eventi");
 
 			$tipologie_notizie = dsi_get_option("tipologie_notizie", "notizie");
 			$ct=1;
@@ -31,7 +31,7 @@ get_header();
 
             get_template_part("template-parts/home/notizie", "circolari");
             $ct++;
-            get_template_part("template-parts/home/eventi");
+            //get_template_part("template-parts/home/eventi");
 
 
 		endwhile; // End of the loop.
