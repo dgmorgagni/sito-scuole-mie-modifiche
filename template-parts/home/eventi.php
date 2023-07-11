@@ -17,7 +17,9 @@ if($ct%2)
 				<ul class="splide__list">
 					<?php
 					$args = array('post_type' => 'evento',
-								'posts_per_page' => 9
+								'posts_per_page' => 9,
+								'meta_key' => '_dsi_evento_timestamp_fine',
+                						'orderby'   =>  array('meta_value' => 'DSC', '_dsi_evento_timestamp_fine' => 'DSC')
 					);
 					$posts = get_posts($args);
 					foreach ($posts as $post){ ?>
