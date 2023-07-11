@@ -75,7 +75,7 @@ if($destinatari_circolari == "gruppo"){
 
 ?>  
 
-/*?>*/
+
     <main id="main-container" class="main-container greendark">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
