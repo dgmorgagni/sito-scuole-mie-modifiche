@@ -52,7 +52,8 @@ function dsi_add_articolo_metaboxes() {
     $cmb_abstrat->add_field( array(
         'id' => $prefix . 'tipologia',
         'name'        => __( 'Tipologia articolo *', 'design_scuole_italia' ),
-        'type'             => 'taxonomy_radio_inline',
+        'type'             => 'taxonomy_multicheck_inline',
+	'select_all_button' => false,
         'show_option_none' => false,
         'taxonomy'       => 'tipologia-articolo',
         'remove_default' => 'true',
