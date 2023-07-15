@@ -9,13 +9,67 @@ $data_limite_filtro = strtotime("-". $giorni_per_filtro . " day");
 
 $ct=0;
 $column = 1;
+//visualizza prima gli eventi
+ ?>
+    <section class="section bg-white py-2 py-lg-3 py-xl-5">
+    <div class="container">
+    <div class="row variable-gutters">
+    <?php
+if($home_show_events != "false") { ?>
+
+        <div class="col-lg-4">
+
+        <!-- <div class="title-section <?php if($home_show_events == "true_event") echo 'pb-4'; ?>"> -->
+        <div class="title-section pb-4">
+            <h2><?php _e("Evento in scadenza", "design_scuole_italia"); ?></h2>
+        </div><!-- /title-section -->
+
+        <?php
+        if ($home_show_events == "true_event") {
+            $args = array('post_type' => 'evento',
+                'posts_per_page' => 1,
+                'meta_key' => '_dsi_evento_timestamp_fine',
+                'orderby'   =>  array('_dsi_evento_timestamp_fine' => 'ASC'),
+				'meta_query' => array(
+                    array(
+                        'key' => '_dsi_evento_timestamp_fine'
+                    ),
+                    array(
+                        'key' => '_dsi_evento_timestamp_fine',
+                        'value' => time(),
+                        'compare' => '>=',
+                        'type' => 'numeric'
+                    )
+                )
+            );
+		   //var_dump($args);
+           $posts = get_posts($args);
+           foreach ($posts as $post) {	  
+			   get_template_part("template-parts/evento/card");
+           }
+        }else {
+             //$calendar_card = true;
+             //get_template_part("template-parts/evento/full_calendar");
+        }
+
+    ?>
+    <div class="py-4">
+        <a class="text-underline" href="<?php echo get_post_type_archive_link("evento"); ?>"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
+    </div>
+    </div><!-- /col-lg-4 -->
+    <?php
+}
+// fine visualizza eventi
+
+
 if($home_show_events == "false")
     $column = 2;
 if(is_array($tipologie_notizie) && count($tipologie_notizie)){
     ?>
-    <section class="section bg-white py-2 py-lg-3 py-xl-5">
+   <!-- <section class="section bg-white py-2 py-lg-3 py-xl-5">
     <div class="container">
-    <div class="row variable-gutters">
+    <div class="row variable-gutters"> 
+-->
     <?php
     foreach ( $tipologie_notizie as $id_tipologia_notizia ) {
         
@@ -93,50 +147,8 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
         $ct++;
     }
 
-    if($home_show_events != "false") { ?>
 
-        <div class="col-lg-4">
 
-        <!-- <div class="title-section <?php if($home_show_events == "true_event") echo 'pb-4'; ?>"> -->
-        <div class="title-section pb-4">
-            <h2><?php _e("Eventi", "design_scuole_italia"); ?></h2>
-        </div><!-- /title-section -->
-
-        <?php
-        if ($home_show_events == "true_event") {
-            $args = array('post_type' => 'evento',
-                'posts_per_page' => 1,
-                'meta_key' => '_dsi_evento_timestamp_inizio',
-                'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC'),
-				'meta_query' => array(
-                    array(
-                        'key' => '_dsi_evento_timestamp_inizio'
-                    ),
-                    array(
-                        'key' => '_dsi_evento_timestamp_fine',
-                        'value' => time(),
-                        'compare' => '>=',
-                        'type' => 'numeric'
-                    )
-                )
-            );
-		   //var_dump($args);
-           $posts = get_posts($args);
-           foreach ($posts as $post) {	  
-               get_template_part("template-parts/evento/card");
-           }
-        }else {
-             //$calendar_card = true;
-             //get_template_part("template-parts/evento/full_calendar");
-        }
-
-    ?>
-    <div class="py-4">
-        <a class="text-underline" href="<?php echo get_post_type_archive_link("evento"); ?>"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
-    </div>
-    </div><!-- /col-lg-4 -->
-    <?php
-}
 ?>
 
         <div class="col-lg-4">
@@ -147,7 +159,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             <?php
             $args = array('post_type' => 'circolare',
                 'posts_per_page' => 1,
-		'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC')
+				'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC')
             );
             $posts = get_posts($args);
             foreach ($posts as $post) {
