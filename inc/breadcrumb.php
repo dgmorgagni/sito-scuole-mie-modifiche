@@ -353,6 +353,7 @@ class Breadcrumb_Trail {
 			} else if ( is_archive() ) { // If viewing an archive page.
 
 				// @todo: rendere dinamiche le url del breadcrumb in base al template di pagina
+						    
                 if( is_post_type_archive( array("luogo", "documento","struttura") ) ) {
                     $this->items[] =  "<a href='".home_url("la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
 			$this->add_post_type_archive_items();
@@ -1089,10 +1090,8 @@ class Breadcrumb_Trail {
 			// Sort the terms by ID and get the first category.
 			if ( function_exists( 'wp_list_sort' ) )
 				$terms = wp_list_sort( $terms, 'term_id' );
-
 			else
 				usort( $terms, '_usort_terms_by_ID' );
-
 			$term = get_term( $terms[0], $taxonomy );
 
 			// If the category has a parent, add the hierarchy to the trail.
