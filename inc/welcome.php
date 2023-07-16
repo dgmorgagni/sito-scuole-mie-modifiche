@@ -9,7 +9,7 @@ require get_template_directory() . '/inc/vendor/parsedown.php';
 /**
  * Welcome page
  */
-remove_action('welcome_panel', 'wp_welcome_panel');
+/*remove_action('welcome_panel', 'wp_welcome_panel');
 add_action( 'welcome_panel', 'dsi_welcome_panel' );
 
 function dsi_welcome_panel(){
@@ -28,7 +28,7 @@ function dsi_welcome_init() {
 
 add_action('after_switch_theme','dsi_welcome_init');
 
-
+*/
 /**
  * Gestione widget dashboard admin
  *
