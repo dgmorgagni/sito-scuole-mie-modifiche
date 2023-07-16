@@ -72,7 +72,8 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 -->
     <?php
     foreach ( $tipologie_notizie as $id_tipologia_notizia ) {
-        
+        if($ct >= $column)
+            break;
         $tipologia_notizia = get_term_by("id", $id_tipologia_notizia, "tipologia-articolo");
         if($tipologia_notizia) {
             
@@ -85,7 +86,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             }
             
             $args = array(
-            		'post_type' => 'post',
+            	    'post_type' => 'post',
                     'posts_per_page' => $ppp,
                     'tax_query' => array(
                         array(
@@ -100,7 +101,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             	$filter = array(
                 		'date_query' => array(
             				array(
-								'after' => '-'. $giorni_per_filtro . ' day',
+						'after' => '-'. $giorni_per_filtro . ' day',
                 				'inclusive' => true,
             				),
             			),
