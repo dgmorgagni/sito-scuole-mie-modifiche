@@ -72,8 +72,8 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 -->
     <?php
     foreach ( $tipologie_notizie as $id_tipologia_notizia ) {
-        if($ct >= $column)
-            break;
+        //if($ct >= $column)
+        //    break;
         $tipologia_notizia = get_term_by("id", $id_tipologia_notizia, "tipologia-articolo");
         if($tipologia_notizia) {
             
